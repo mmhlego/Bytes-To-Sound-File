@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.bluetooth.BluetoothAdapter" />
+
+        <import type="android.bluetooth.BluetoothDevice" />
+
+        <import type="android.view.View" />
+
+        <import type="lt.demo.stethoscope.utils.DataKey" />
+
+        <import type="lt.sdk.ble.BleWorker" />
+
+        <import type="lt.sdk.obj.Constants" />
+
+        <variable
+            name="state"
+            type="androidx.databinding.ObservableInt" />
+
+        <variable
+            name="gattState"
+            type="androidx.databinding.ObservableInt" />
+
+        <variable
+            name="dataMap"
+            type="androidx.databinding.ObservableArrayMap&lt;String,Object&gt;" />
+
+        <variable
+            name="recording"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="playing"
+            type="androidx.databinding.ObservableBoolean" />
+
+        <variable
+            name="filterAudio"
+            type="androidx.databinding.ObservableBoolean" />
+
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/bluetooth_state"
+                android:textColor="@color/colorSecondary" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sw_bt_state"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickBtState"
+                android:text="@string/bluetooth_state_off"
+                android:textSize="16sp"
+                app:stateChanged="@{state}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:enabled="@{state==BluetoothAdapter.STATE_ON,default=false}"
+                android:onClick="onClickConnectGatt"
+                android:text="@string/ble_gatt_state_disconnected"
+                android:textAllCaps="false"
+                app:gattState="@{gattState}" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/device_info"
+                android:textColor="@color/colorSecondary" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                app:bleDeviceInfo="@{(BluetoothDevice)dataMap.getOrDefault(DataKey.BLE_DEV,null)}" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{@string/battery_level(dataMap.getOrDefault(DataKey.BATTERY_LEVEL,0)),default=@string/battery_level}"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{@string/volume_level(dataMap.getOrDefault(DataKey.VOLUME_LEVEL,0)),default=@string/volume_level}"
+                    android:textSize="16sp" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content" />
+
+                <ProgressBar
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:max="10"
+                    android:progress="@{(Integer)dataMap.getOrDefault(DataKey.VOLUME_LEVEL,0)}" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickVolLower"
+                    android:text="@string/volume_down"
+                    android:textAllCaps="false" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:onClick="onClickVolRaise"
+                    android:text="@string/volume_up"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:text="@string/echo_mode_switch_title"
+                    android:textColor="@color/colorSecondary" />
+
+                <View
+                    android:layout_width="8dp"
+                    android:layout_height="wrap_content" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:onClick="onclickSwitchEchoMode"
+                    android:text="@string/echo_mode_hs"
+                    android:textAllCaps="false"
+                    app:switchEchoMode="@{dataMap.getOrDefault(DataKey.ECHO_MODE,Constants.ECHO_MODE_HS)}" />
+
+            </LinearLayout>
+
+            <lt.demo.stethoscope.widget.AudioWaveView
+                android:id="@+id/wsv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/wave_frame_height"
+                android:background="#4D4C4C" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@string/result"
+                    android:textColor="@color/colorSecondary" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/tv_hr"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="@{@string/heart_rate_value(dataMap.getOrDefault(DataKey.HEART_RATE,0)),default=@string/heart_rate_value}" />
+            </LinearLayout>
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="@={filterAudio}"
+                android:text="@string/sw_label_receive_filtered_audio"
+                android:textSize="16sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickRecord"
+                android:text="@{recording?@string/stop_record:@string/start_record,default=@string/start_record}"
+                android:textAllCaps="false"
+                app:recordBtnState="@{gattState}" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickPlayRecordFile"
+                android:text="@{playing?@string/stop_playing:@string/play_record_file,default=@string/play_record_file}"
+                android:textAllCaps="false" />
+
+            <com.google.android.material.button.MaterialButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="onClickDFU"
+                android:text="@string/dfu_feature_title"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

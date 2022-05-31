@@ -1,0 +1,136 @@
+<resources>
+    <string name="app_name">Linktop Stethoscope SDK Demo</string>
+    <string name="bluetooth_state">Bluetooth state</string>
+    <string name="bluetooth_state_on">On</string>
+    <string name="bluetooth_state_turning_on">Turning on…</string>
+    <string name="bluetooth_state_off">Off</string>
+    <string name="bluetooth_state_turning_off">Turning off…</string>
+    <string name="bluetooth_discovering">Discovering…</string>
+    <string name="state_tips_for_bt_off">The phone\'s Bluetooth is not turned on</string>
+    <string name="state_tips_for_bt_turning_off">The phone\'s Bluetooth is turning off</string>
+    <string name="state_tips_for_bt_turning_on">The phone\'s Bluetooth is turning on</string>
+    <string name="state_tips_for_gatt_disconnect">Device is not connected</string>
+    <string name="state_tips_for_gatt_connecting">Connecting device</string>
+    <string name="dialog_title_tips">Tips</string>
+    <string name="dialog_msg_adjust_volume_exception_for_max">The volume level on the device has reached maximum volume and cannot be raised.</string>
+    <string name="dialog_msg_adjust_volume_exception_for_min">The volume level of the device has reached minimum volume and cannot be lowered further.</string>
+    <string name="dialog_msg_turn_on_location">Bluetooth scanning needs to turn on the system location.</string>
+    <string name="dialog_btn_label_turn_on">Turn on location</string>
+    <string name="permission_denied_for_location">Location permission denied.</string>
+    <string name="ble_gatt_state_disconnected">Connect device</string>
+    <string name="ble_gatt_state_connecting">Connecting&#8230;</string>
+    <string name="ble_gatt_state_connected">Disconnect device</string>
+    <string name="stop_record">Stop record</string>
+    <string name="start_record">Start record</string>
+    <string name="heart_rate_value">Heart rate: %d bpm</string>
+    <string name="play_record_file">Play record file</string>
+    <string name="stop_playing">Stop playing</string>
+    <string name="volume_up">Volume +</string>
+    <string name="volume_down">Volume -</string>
+    <string name="empty">Empty!</string>
+    <string name="unknown">Unknown</string>
+    <string name="echo_mode_switch_title">Echo mode switch</string>
+    <string name="echo_mode_hs">Heart sounds</string>
+    <string name="echo_mode_ls">Lung sounds</string>
+    <string name="result">Result</string>
+    <string name="device_info">Device information</string>
+    <string name="msg_exit_app">Do you want to exit the application?</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="clear">Clear</string>
+    <string name="completed">Completed!</string>
+    <string name="battery_level">Battery level: %d%%</string>
+    <string name="volume_level">Volume level: %d</string>
+    <string name="device_info_value">Device name: %s\nBluetooth address: %s</string>
+    <string name="synchronizing_data">Synchronizing data&#8230;</string>
+    <string name="exception_for_sync_data_timeout">Synchronizing data timed out！</string>
+
+    <!--Strings about about DFU-->
+    <string name="ok">OK</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="cancel">Cancel</string>
+    <string name="not_available">n/a</string>
+    <string name="dfu_feature_title">DFU(Device Firmware Update)</string>
+    <string name="dfu_service_title">DFU Proxy</string>
+
+    <string name="dfu_section_application_header">APPLICATION</string>
+    <string name="dfu_file_name_label">File name:</string>
+    <string name="dfu_file_size_label">Size:</string>
+    <string name="dfu_file_status_label">Status:</string>
+    <string name="dfu_file_size_text">%d bytes</string>
+    <string name="dfu_file_status_ok">OK</string>
+    <string name="dfu_file_status_ok_with_init">OK (Init file selected)</string>
+    <string name="dfu_file_status_no_file">File not loaded</string>
+    <string name="dfu_file_status_invalid">Invalid file</string>
+    <string name="dfu_file_status_error">Reading file failed</string>
+    <string name="dfu_file_status_invalid_message">Please, select valid HEX file</string>
+
+    <string name="dfu_action_select_file">SELECT FILE</string>
+
+    <string name="dfu_alert_no_filebrowser_title">File Browser not found</string>
+    <string name="dfu_alert_no_filebrowser_message">File browser application has not been found on
+		your device. Would you like to download one?</string>
+    <string-array name="dfu_app_file_browser">
+        <item>Drive</item>
+        <item>File Manager</item>
+        <item>Total Commander</item>
+        <item>Search for others</item>
+    </string-array>
+    <string-array name="dfu_app_file_browser_action">
+        <item>market://details?id=com.google.android.apps.docs</item>
+        <item>market://details?id=com.rhmsoft.fm</item>
+        <item>market://details?id=com.ghisler.android.TotalCommander</item>
+        <item>market://search?q=file manager</item>
+    </string-array>
+
+    <string name="dfu_section_dfu_header">DEVICE FIRMWARE UPDATE</string>
+    <string name="dfu_action_upload">UPLOAD</string>
+
+    <string name="dfu_uploading_percentage_label">0%</string>
+    <string name="dfu_uploading_percentage">%d%%</string>
+    <string name="dfu_default_name">DEFAULT DFU</string>
+    <string name="dfu_confirmation_dialog_title">Application Uploading</string>
+    <string name="dfu_upload_dialog_cancel_message">Are you sure to cancel upload?</string>
+    <string name="dfu_success">Application has been transferred successfully.</string>
+    <string name="dfu_aborted">Uploading of the application has been canceled.</string>
+
+    <string name="dfu_help_title">Select file</string>
+    <string name="dfu_help_message">A file browser application must be installed on the device before
+		selecting the file.\n\nThere are number of applications available on Google Play store,
+		e.g. Total Commander or File Manager, that allow you to pick a file from internal memory
+		of the device. To upload a file from the Internet you may use e.g. Drive or Dropbox application.
+		\n\nYou will be asked to select an application if more than one is installed. A single
+		application will be launched automatically.\n\nSince <b>Android KitKat</b> you may use the
+		preinstalled document picker application. Ensure <i>Show internal storage</i> option is
+		enabled in the menu to use the <i>Internal storage</i>.</string>
+
+    <!--Overwrite strings in the SDK library about DFU. -->
+    <string name="dfu_action_abort">Abort</string>
+    <string name="dfu_channel_description">Shows DFU progress.</string>
+    <string name="dfu_channel_name">DFU</string>
+    <string name="dfu_status_aborted">Aborted</string>
+    <string name="dfu_status_aborted_msg">Application upload has been canceled.</string>
+    <string name="dfu_status_aborting">Aborting…</string>
+    <string name="dfu_status_completed">Done</string>
+    <string name="dfu_status_completed_msg">Application has been sent successfully.</string>
+    <string name="dfu_status_connecting">Connecting…</string>
+    <string name="dfu_status_connecting_msg">Connecting to %s…</string>
+    <string name="dfu_status_disconnecting">Disconnecting…</string>
+    <string name="dfu_status_disconnecting_msg">Disconnecting from %s…</string>
+    <string name="dfu_status_error">Upload failed</string>
+    <string name="dfu_status_error_msg">DFU process failed.</string>
+    <string name="dfu_status_foreground_content">Update in progress…</string>
+    <string name="dfu_status_foreground_title">Device Firmware Update</string>
+    <string name="dfu_status_initializing">Initializing…</string>
+    <string name="dfu_status_starting">Starting DFU…</string>
+    <string name="dfu_status_starting_msg">Initializing DFU process…</string>
+    <string name="dfu_status_switching_to_dfu">Starting bootloader…</string>
+    <string name="dfu_status_switching_to_dfu_msg">Waiting for bootloader…</string>
+    <string name="dfu_status_uploading">Uploading…</string>
+    <string name="dfu_status_uploading_msg">Transmitting firmware to %s…</string>
+    <string name="dfu_status_uploading_part">Uploading part %d/%d…</string>
+    <string name="dfu_status_validating">Validating…</string>
+    <string name="dfu_status_validating_msg">Validating…</string>
+    <string name="dfu_unknown_name">unnamed device</string>
+    <string name="sw_label_receive_filtered_audio">Receive filter audio stream</string>
+</resources>

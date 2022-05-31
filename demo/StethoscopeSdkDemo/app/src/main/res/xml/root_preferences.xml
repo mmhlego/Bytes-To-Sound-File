@@ -1,0 +1,35 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Production management information">
+        <Preference
+            app:key="key_sn"
+            app:summary="-"
+            app:title="SN" />
+        <Preference
+            app:key="key_dev_id"
+            app:summary="-"
+            app:title="Device id" />
+        <Preference
+            app:key="key_akey"
+            app:summary="-"
+            app:title="AKey" />
+    </PreferenceCategory>
+
+    <PreferenceCategory app:title="Version information">
+        <!-- <Preference
+             app:summary="-"
+             app:title="Device firmware version" />-->
+        <Preference
+            app:key="key_hardware_version"
+            app:summary="-"
+            app:title="Device hardware version" />
+        <Preference
+            app:key="key_software_version"
+            app:summary="-"
+            app:title="Device software version" />
+        <Preference
+            app:key="key_sdk_version"
+            app:summary="-"
+            app:title="SDK version" />
+    </PreferenceCategory>
+</PreferenceScreen>

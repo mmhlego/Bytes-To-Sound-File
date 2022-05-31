@@ -1,0 +1,122 @@
+<resources>
+    <string name="app_name">凌拓听诊器SDK</string>
+    <string name="bluetooth_state">蓝牙状态</string>
+    <string name="bluetooth_state_on">已开启</string>
+    <string name="bluetooth_state_turning_on">正在打开…</string>
+    <string name="bluetooth_state_off">关闭</string>
+    <string name="bluetooth_state_turning_off">正在关闭…</string>
+    <string name="bluetooth_discovering">扫描中…</string>
+    <string name="state_tips_for_bt_off">手机蓝牙未打开</string>
+    <string name="state_tips_for_bt_turning_off">手机蓝牙关闭中</string>
+    <string name="state_tips_for_bt_turning_on">手机蓝牙打开中</string>
+    <string name="state_tips_for_gatt_disconnect">设备未连接</string>
+    <string name="state_tips_for_gatt_connecting">正在连接设备</string>
+    <string name="dialog_title_tips">提示</string>
+    <string name="dialog_msg_turn_on_location">蓝牙扫描需要开启系统位置开关！</string>
+    <string name="dialog_btn_label_turn_on">打开位置开关</string>
+    <string name="dialog_msg_adjust_volume_exception_for_max">设备上的音量级别已达到最大音量，不能再上调。</string>
+    <string name="dialog_msg_adjust_volume_exception_for_min">设备上的音量级别已达到最小音量，不能再下调。</string>
+    <string name="permission_denied_for_location">位置权限被拒绝。</string>
+    <string name="ble_gatt_state_disconnected">连接设备</string>
+    <string name="ble_gatt_state_connecting">连接中&#8230;</string>
+    <string name="ble_gatt_state_connected">断开设备</string>
+    <string name="stop_record">停止录音</string>
+    <string name="start_record">开始录音</string>
+    <string name="heart_rate_value">心率: %d 次/分钟</string>
+    <string name="play_record_file">播放录音文件</string>
+    <string name="stop_playing">停止播放</string>
+    <string name="volume_up">音量+</string>
+    <string name="volume_down">音量-</string>
+    <string name="empty">空！</string>
+    <string name="unknown">未知</string>
+    <string name="echo_mode_switch_title">模式切换</string>
+    <string name="echo_mode_hs">心音模式</string>
+    <string name="echo_mode_ls">肺音模式</string>
+    <string name="result">计算结果</string>
+    <string name="device_info">设备信息</string>
+    <string name="msg_exit_app">您要退出应用程序吗？</string>
+    <string name="title_activity_settings">设置</string>
+    <string name="clear">清空</string>
+    <string name="completed">完成！</string>
+    <string name="battery_level">电量：%d%%</string>
+    <string name="volume_level">音量：%d</string>
+    <string name="device_info_value">设备名称：%s\n蓝牙地址：%s</string>
+    <string name="synchronizing_data">同步数据中&#8230;</string>
+    <string name="exception_for_sync_data_timeout">同步数据超时！</string>
+
+    <!--Strings about about DFU-->
+    <string name="ok">好的</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="cancel">取消</string>
+    <string name="not_available">无法使用</string>
+    <string name="dfu_feature_title">DFU（设备固件更新）</string>
+    <string name="dfu_service_title">DFU代理服务</string>
+
+    <string name="dfu_section_application_header">应用组件</string>
+    <string name="dfu_file_name_label">文件名:</string>
+    <string name="dfu_file_size_label">大小:</string>
+    <string name="dfu_file_status_label">状态:</string>
+    <string name="dfu_file_size_text">%d 个字节</string>
+    <string name="dfu_file_status_ok">OK</string>
+    <string name="dfu_file_status_ok_with_init">OK（已选择初始化文件）</string>
+    <string name="dfu_file_status_no_file">文件未加载</string>
+    <string name="dfu_file_status_invalid">无效的文件</string>
+    <string name="dfu_file_status_error">读取文件失败</string>
+    <string name="dfu_file_status_invalid_message">请选择有效的十六进制文件</string>
+
+    <string name="dfu_action_select_file">选择文件</string>
+
+    <string name="dfu_alert_no_filebrowser_title">找不到文件浏览器</string>
+    <string name="dfu_alert_no_filebrowser_message">在您的设备上找不到文件浏览器应用程序。您要下载一个吗？</string>
+    <string-array name="dfu_app_file_browser">
+        <item>Drive</item>
+        <item>文件管理器</item>
+        <item>Total Commander</item>
+        <item>搜索其他</item>
+    </string-array>
+
+    <string name="dfu_section_dfu_header">设备固件更新</string>
+    <string name="dfu_action_upload">上传</string>
+
+    <string name="dfu_uploading_percentage_label">0%</string>
+    <string name="dfu_uploading_percentage">%d%%</string>
+    <string name="dfu_default_name">默认的DFU</string>
+    <string name="dfu_confirmation_dialog_title">应用组件上传中</string>
+    <string name="dfu_upload_dialog_cancel_message">您确定要取消上传吗？</string>
+    <string name="dfu_success">应用组件以传输成功</string>
+    <string name="dfu_aborted">应用组件的上传已被取消。</string>
+
+    <string name="dfu_help_title">选择文件</string>
+    <string name="dfu_help_message">选择文件之前，必须先在设备上安装文件浏览器应用程序。\n\nGoogle Play商店中有很多可用的应用程序，例如 Total Commander或文件管理器，使您可以从设备的内部存储器中选择文件。要从Internet上传文件，您可以使用Drive或Dropbox应用程序。\n\n如果安装了多个应用程序，则会要求您选择一个应用程序。一个应用程序将自动启动。\n\n由于<b> Android KitKat </b>，您可以使用预安装的文档选择器应用程序。 确保菜单中的<i>显示内部存储空间</i>选项已启用，以使用<i>内部存储空间</i>。</string>
+
+    <!--复写SDK库中关于DFU的字符串。 -->
+    <string name="dfu_action_abort">终止</string>
+    <string name="dfu_channel_description">显示DFU进度。</string>
+    <string name="dfu_channel_name">DFU</string>
+    <string name="dfu_status_aborted">已终止</string>
+    <string name="dfu_status_aborted_msg">应用组件上传已取消。</string>
+    <string name="dfu_status_aborting">终止中…</string>
+    <string name="dfu_status_completed">完毕</string>
+    <string name="dfu_status_completed_msg">已成功发送应用组件。</string>
+    <string name="dfu_status_connecting">连接中…</string>
+    <string name="dfu_status_connecting_msg">连接到%s…</string>
+    <string name="dfu_status_disconnecting">断开中…</string>
+    <string name="dfu_status_disconnecting_msg">断开%s…</string>
+    <string name="dfu_status_error">上载失败</string>
+    <string name="dfu_status_error_msg">DFU进程失败。</string>
+    <string name="dfu_status_foreground_content">正在更新…</string>
+    <string name="dfu_status_foreground_title">设备固件系统升级</string>
+    <string name="dfu_status_initializing">初始化…</string>
+    <string name="dfu_status_starting">启动DFU…</string>
+    <string name="dfu_status_starting_msg">初始化DFU进程…</string>
+    <string name="dfu_status_switching_to_dfu">正在启动bootloader…</string>
+    <string name="dfu_status_switching_to_dfu_msg">等待bootloader…</string>
+    <string name="dfu_status_uploading">上传中…</string>
+    <string name="dfu_status_uploading_msg">将固件传输到%s…</string>
+    <string name="dfu_status_uploading_part">正在上传%d/%d…</string>
+    <string name="dfu_status_validating">正在验证…</string>
+    <string name="dfu_status_validating_msg">正在验证…</string>
+    <string name="dfu_unknown_name">未命名设备</string>
+    <string name="sw_label_receive_filtered_audio">接收已滤波的音频流</string>
+</resources>
