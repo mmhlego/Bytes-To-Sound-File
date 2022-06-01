@@ -6,7 +6,7 @@ def int_to_byte_str(value):
     return s if len(s) == 2 else ('0'+s)
 
 
-with open("./RAW DATA 2 - Splitted") as f, open('test.wav', 'wb') as fout:
+with open("./FILTERED DATA 4") as f, open('test.wav', 'wb') as fout:
     data = []
     for d in f.readlines():
         d = int(d)
@@ -27,10 +27,12 @@ with open("./RAW DATA 2 - Splitted") as f, open('test.wav', 'wb') as fout:
     header1 = ["52", "49", "46", "46",  # RIFF
 
                # Chunk size = fileSize - 8
-               int_to_byte_str((file_size-8) % 256),
-               int_to_byte_str(((file_size-8)//256) % 256),
-               int_to_byte_str(((file_size-8)//(256*256)) % 256),
-               int_to_byte_str(((file_size-8)//(256*256*256)) % 256),
+               #    int_to_byte_str((file_size-8) % 256),
+               #    int_to_byte_str(((file_size-8)//256) % 256),
+               #    int_to_byte_str(((file_size-8)//(256*256)) % 256),
+               #    int_to_byte_str(((file_size-8)//(256*256*256)) % 256),
+
+               "2C", "53", "07", "00",
 
                "57", "41", "56", "45", 	# WAVE
 
@@ -64,10 +66,11 @@ with open("./RAW DATA 2 - Splitted") as f, open('test.wav', 'wb') as fout:
 
                "64", "61", "74", "61",  # data
                # subchunk 2 size
-               int_to_byte_str(data_size % 256),
-               int_to_byte_str((data_size//256) % 256),
-               int_to_byte_str((data_size//(256*256)) % 256),
-               int_to_byte_str((data_size//(256*256*256)) % 256),
+               "00", "53", "07", "00",
+               #    int_to_byte_str(data_size % 256),
+               #    int_to_byte_str((data_size//256) % 256),
+               #    int_to_byte_str((data_size//(256*256)) % 256),
+               #    int_to_byte_str((data_size//(256*256*256)) % 256),
                ]
 
     for b in header1:
